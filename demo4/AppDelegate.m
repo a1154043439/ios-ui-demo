@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
+#import "HomeNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 设置状态栏不隐藏
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    //rootViewController
+    self.window.rootViewController = [[HomeNavigationController alloc] initWithRootViewController:[[FirstViewController alloc] init]];
+    [self.window makeKeyAndVisible];
+    
+
     return YES;
 }
 
